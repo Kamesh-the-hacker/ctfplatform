@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="page-title">ADD CHALLENGE</h2>
+
+<div class="card">
+
+<form method="POST" enctype="multipart/form-data" class="form-box">
+
+<input name="title" placeholder="CHALLENGE TITLE">
+
+<select name="category">
+<option>WEB</option>
+<option>CRYPTO</option>
+<option>FORENSICS</option>
+<option>PWN</option>
+<option>REV</option>
+<option>OTHERS</option>
+<option>STEGNOGRAPHY</option>
+<option>MISCELLANEOUS</option>
+
+</select>
+
+<input name="points" placeholder="POINTS">
+
+<input name="flag" placeholder="FLAG (e.g flag{test})">
+
+<input name="file" type="file">
+
+<textarea name="desc" placeholder="DESCRIPTION"></textarea>
+
+<button>ADD CHALLENGE</button>
+
+</form>
+
+</div>
+
+<hr style="margin:40px 0;">
+
+<h2 class="page-title">ALL CHALLENGES</h2>
+
+<div class="grid">
+
+{% for c in challenges %}
+<div class="card">
+
+<h3>{{c[1]}}</h3>
+
+<p><b>TYPE:</b> {{c[2]}}</p>
+<p><b>POINTS:</b> {{c[5]}}</p>
+
+{% if c[6] %}
+<a href="/files/{{c[6]}}">
+<button>DOWNLOAD</button>
+</a>
+{% endif %}
+
+<div class="btn-group">
+<a href="/admin/edit/{{c[0]}}"><button>EDIT</button></a>
+<a href="/admin/delete_challenge/{{c[0]}}"><button>DELETE</button></a>
+</div>
+
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

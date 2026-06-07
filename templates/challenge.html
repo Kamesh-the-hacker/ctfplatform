@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="page-title">{{c.title}}</h2>
+
+<!-- 🔥 CHALLENGE INFO -->
+<div class="card">
+
+    <!-- Description -->
+    <div class="desc-box">
+        <h3>Description</h3>
+        <p>{{c.description}}</p>
+    </div>
+
+    <!-- Meta Info -->
+    <div class="meta">
+        <p><b>TYPE:</b> {{c.category}}</p>
+        <p><b>POINTS:</b> {{c.points}}</p>
+    </div>
+
+    <!-- File Download -->
+    {% if c.file %}
+    <div class="download">
+        <a href="/files/{{c.file}}">
+            <button>DOWNLOAD FILE</button>
+        </a>
+    </div>
+    {% endif %}
+
+</div>
+
+<!-- 🔥 SUBMIT FLAG -->
+<div class="card">
+    <h3 class="section-title">SUBMIT FLAG</h3>
+
+    <form method="POST" class="flag-form">
+        <input name="flag" placeholder="ENTER FLAG" required>
+        <button>SUBMIT</button>
+    </form>
+</div>
+
+<!-- 🔥 RESULT -->
+{% if msg %}
+<div class="card result-box {% if 'Correct' in msg %}success{% endif %}">
+    <p id="result">{{msg}}</p>
+</div>
+{% endif %}
+
+<!-- 🔥 SUCCESS ANIMATION + REDIRECT -->
+<script>
+let result = document.getElementById("result");
+
+if (result && result.innerText.includes("Correct")) {
+
+    // typing effect
+    let text = result.innerText;
+    result.innerText = "";
+
+    let i = 0;
+    function type() {
+        if (i < text.length) {
+            result.innerText += text.charAt(i);
+            i++;
+            setTimeout(type, 25);
+        }
+    }
+    type();
+
+    // green flash
+    document.body.style.transition = "0.3s";
+    document.body.style.backgroundColor = "#002200";
+
+    setTimeout(() => {
+        document.body.style.backgroundColor = "";
+    }, 400);
+
+    // show redirect message
+    setTimeout(() => {
+        result.innerText += "\nRedirecting to dashboard...";
+    }, 800);
+
+    // 🔥 AUTO REDIRECT
+    setTimeout(() => {
+        window.location.href = "/dashboard";
+    }, 1500);
+}
+</script>
+
+{% endblock %}

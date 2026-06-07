@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Teams</h2>
+
+{% for t in teams %}
+<div class="card">
+{{t[1]}} - {{t[2]}}
+<a href="/admin/delete_team/{{t[0]}}">Delete</a>
+</div>
+{% endfor %}
+
+{% endblock %}

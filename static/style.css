@@ -1,0 +1,678 @@
+/* FONT (PIXEL STYLE) */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background: #ffffff;
+    color: #000;
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* NAVBAR */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 30px;
+
+    border-bottom: 2px solid black;   /* 🔥 minimal line */
+}
+
+/* links */
+.nav a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+/* spacing */
+.nav div:first-child {
+    display: flex;
+    gap: 25px;
+}
+
+/* right side */
+.nav div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* dark mode */
+body.dark .nav {
+    border-bottom: 2px solid white;
+}
+
+body.dark .nav a {
+    color: white;
+}
+
+/* DARK MODE */
+body.dark .nav {
+    border-bottom: 2px solid white;
+}
+
+body.dark .nav a {
+    color: white;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* BLOCK CARD */
+.card {
+    background: white;
+    border: 4px solid black;
+    padding: 25px;
+    box-shadow: 6px 6px 0 black;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0 black;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    padding: 15px;
+    width: 100%;
+    background: black;
+    color: white;
+    border: 4px solid black;
+    font-family: 'Press Start 2P';
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+/* INPUT */
+input, select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 4px solid black;
+    font-family: 'Press Start 2P';
+    background: white;
+}
+
+/* HEADINGS */
+h1, h2, h3 {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* LEADERBOARD ROW */
+.rank {
+    display: flex;
+    justify-content: space-between;
+    border: 4px solid black;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 4px 4px 0 black;
+}
+
+/* PROFILE BOX */
+.profile-box {
+    border: 4px solid black;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 6px 6px 0 black;
+}
+/* section spacing */
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+/* spacing between sections */
+.profile-box,
+.card {
+    margin-bottom: 20px;
+}
+
+/* grid spacing */
+.grid {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+/* spacing fix for entire site */
+
+h2 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+/* cards spacing */
+.card {
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+/* grid spacing */
+.grid {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* input spacing */
+input, textarea, select {
+    margin-bottom: 10px;
+}
+/* description box */
+.desc-box {
+    margin-bottom: 25px;   /* 🔥 creates space before TYPE/POINTS */
+}
+
+.desc-box h3 {
+    margin-bottom: 10px;
+}
+
+.desc-box p {
+    line-height: 1.6;
+    padding: 10px;
+    border: 2px solid black;   /* pixel-style box */
+    background: #f5f5f5;       /* light contrast */
+}
+
+/* meta spacing */
+.meta {
+    margin-top: 10px;
+}
+
+.meta p {
+    margin-bottom: 8px;
+}
+
+/* download spacing */
+.download {
+    margin-top: 15px;
+}
+/* center container */
+.login-box {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+/* form spacing */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.form-box input {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.form-box button {
+    margin-top: 10px;
+}
+
+/* bottom section */
+.extra {
+    margin-top: 25px;
+}
+
+.extra p {
+    margin-bottom: 10px;
+}
+/* center register box */
+.register-box {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+/* reuse form styling */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.form-box input {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.form-box button {
+    margin-top: 10px;
+}
+/* title spacing */
+.title {
+    margin-bottom: 20px;
+}
+
+/* register box */
+.register-box {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+/* form layout */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.form-box input {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.form-box button {
+    margin-top: 10px;
+}
+
+/* bottom section */
+.extra {
+    margin-top: 25px;
+}
+
+.extra p {
+    margin-bottom: 10px;
+}
+/* solved challenge frame */
+/* keep SAME card size, only change color */
+.solved-card {
+    background-color: black;
+    color: white;
+    border: 2px solid black;   /* same border thickness as normal */
+}
+/* page title */
+.page-title {
+    margin-bottom: 20px;
+}
+
+/* form layout */
+.form-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 2px solid black;
+    width: 100%;
+}
+
+/* textarea size */
+.form-box textarea {
+    height: 120px;
+}
+
+/* button spacing */
+.form-box button {
+    margin-top: 10px;
+}
+
+/* spacing between sections */
+hr {
+    border: 2px solid black;
+}
+
+/* grid layout for challenges */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* card spacing */
+.card {
+    padding: 20px;
+    border: 2px solid black;
+}
+
+/* button group spacing */
+.btn-group {
+    margin-top: 10px;
+}
+
+.btn-group button {
+    margin-right: 10px;
+}
+/* page title */
+.page-title {
+    margin-bottom: 20px;
+}
+
+/* form layout */
+.form-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* inputs */
+.form-box input,
+.form-box select,
+.form-box textarea {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 2px solid black;
+    width: 100%;
+}
+
+/* textarea size */
+.form-box textarea {
+    height: 120px;
+}
+
+/* button spacing */
+.form-box button {
+    margin-top: 10px;
+}
+
+/* back button */
+.back-btn {
+    margin-top: 20px;
+}
+/* leaderboard table */
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+/* top 3 highlight */
+tr:nth-child(2) {
+    background: gold;
+}
+
+tr:nth-child(3) {
+    background: silver;
+}
+
+tr:nth-child(4) {
+    background: #cd7f32;
+}
+.page-title {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+/* top 3 highlight */
+tr:nth-child(2) { background: gold; }
+tr:nth-child(3) { background: silver; }
+tr:nth-child(4) { background: #cd7f32; }
+/* table styling (match your theme) */
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+/* top 3 highlight */
+tr:nth-child(2) { background: gold; }
+tr:nth-child(3) { background: silver; }
+tr:nth-child(4) { background: #cd7f32; }
+/* terminal box */
+.terminal {
+    background: black;
+    color: lime;
+    padding: 20px;
+    height: 400px;
+    overflow-y: auto;
+    font-family: monospace;
+    border: 3px solid black;
+}
+
+/* input line */
+.input-line {
+    display: flex;
+    margin-top: 10px;
+}
+
+.input-line span {
+    margin-right: 5px;
+}
+
+.input-line input {
+    background: black;
+    color: lime;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: monospace;
+}
+/* global footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px;
+    border-top: 2px solid black;
+    font-size: 14px;
+}
+.msg {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.msg.error {
+    color: red;
+}
+/* container */
+.container {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* navbar */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+
+/* footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px;
+    border-top: 2px solid black;
+}
+
+/* dark mode */
+body.dark {
+    background: black;
+    color: white;
+}
+
+body.dark .card {
+    background: #111;
+    border: 2px solid white;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+    background: black;
+    color: white;
+    border: 2px solid white;
+}
+
+body.dark button {
+    background: white;
+    color: black;
+}
+
+body.dark .nav {
+    border-bottom: 2px solid white;
+}
+
+body.dark .footer {
+    border-top: 2px solid white;
+}
+/* small theme button */
+.theme-btn {
+    padding: 4px 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    background: white;
+}
+
+/* dark mode */
+body.dark .theme-btn {
+    background: black;
+    color: white;
+    border: 2px solid white;
+}
+/* ultra clean button */
+.theme-btn {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 0;
+}
+
+/* subtle hover */
+.theme-btn:hover {
+    opacity: 0.7;
+}
+
+/* dark mode adjust */
+body.dark .theme-btn {
+    color: white;
+}
+/* NORMAL FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 15px;
+    border-top: 2px solid black;
+}
+
+/* DARK MODE */
+body.dark .footer {
+    border-top: 2px solid white;
+}
+/* make full height layout */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* main content grows */
+.container {
+    flex: 1;
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* footer stays at bottom */
+.footer {
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid black;
+}
+
+/* dark mode */
+body.dark .footer {
+    border-top: 2px solid white;
+}
+/* spacing */
+.desc-box {
+    margin-bottom: 20px;
+}
+
+.meta {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+/* submit section */
+.section-title {
+    margin-bottom: 15px;
+}
+
+/* result box */
+.result-box {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* success style */
+.result-box.success {
+    color: lime;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 0 8px lime;
+}

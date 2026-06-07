@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>VHP CTF - LIVE SCOREBOARD</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h2 class="page-title">🏆 LIVE SCOREBOARD</h2>
+
+<div class="card">
+
+<table id="board">
+<tr>
+<th>RANK</th>
+<th>TEAM</th>
+<th>SCORE</th>
+</tr>
+</table>
+
+</div>
+
+</div>
+
+<script>
+function loadScoreboard() {
+    fetch('/api/scoreboard')
+    .then(res => res.json())
+    .then(data => {
+
+        let html = `
+        <tr>
+            <th>RANK</th>
+            <th>TEAM</th>
+            <th>SCORE</th>
+        </tr>`;
+
+        data.teams.forEach((t, i) => {
+            html += `
+            <tr class="${i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : ''}">
+                <td>${i+1}</td>
+                <td>${t.name}</td>
+                <td>${t.score}</td>
+            </tr>`;
+        });
+
+        document.getElementById("board").innerHTML = html;
+    });
+}
+
+// auto refresh
+setInterval(loadScoreboard, 2000);
+loadScoreboard();
+</script>
+
+</body>
+</html>

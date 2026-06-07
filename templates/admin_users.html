@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Users</h2>
+
+{% for u in users %}
+<div class="card">
+{{u[1]}}
+<a href="/admin/delete_user/{{u[0]}}">Delete</a>
+</div>
+{% endfor %}
+
+{% endblock %}

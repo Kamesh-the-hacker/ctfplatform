@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="page-title">EDIT CHALLENGE</h2>
+
+<div class="card">
+
+<form method="POST" enctype="multipart/form-data" class="form-box">
+
+<input name="title" value="{{c[1]}}" placeholder="CHALLENGE TITLE">
+
+<select name="category">
+<option {% if c[2]=='WEB' %}selected{% endif %}>WEB</option>
+<option {% if c[2]=='CRYPTO' %}selected{% endif %}>CRYPTO</option>
+<option {% if c[2]=='FORENSICS' %}selected{% endif %}>FORENSICS</option>
+<option {% if c[2]=='PWN' %}selected{% endif %}>PWN</option>
+<option {% if c[2]=='REV' %}selected{% endif %}>REV</option>
+</select>
+
+<input name="points" value="{{c[5]}}" placeholder="POINTS">
+
+<input name="flag" value="{{c[4]}}" placeholder="FLAG">
+
+<input name="file" type="file">
+
+<textarea name="desc">{{c[3]}}</textarea>
+
+<button>UPDATE CHALLENGE</button>
+
+</form>
+
+</div>
+
+<div class="back-btn">
+<a href="/admin/challenges"><button>⬅ BACK</button></a>
+</div>
+
+{% endblock %}

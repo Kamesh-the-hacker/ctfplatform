@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="page-title">CHALLENGES</h2>
+
+{% for category, challenges in grouped.items() %}
+
+<!-- Category Title -->
+<h2 class="category-title">{{category}}</h2>
+
+<div class="grid">
+
+{% for c in challenges %}
+
+<div class="card {% if c.id in solved_ids %}solved-card{% endif %}">
+
+    <h3>{{c.title}}</h3>
+
+    <p><b>POINTS:</b> {{c.points}}</p>
+
+    {% if c.id in solved_ids %}
+        <p class="solved-text">✔ SOLVED</p>
+    {% else %}
+        <a href="/challenge/{{c.id}}">
+            <button>SOLVE</button>
+        </a>
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>ADMIN PANEL</h2>
+
+<div class="grid">
+
+<!-- CREATE -->
+<div class="card">
+<h3>Create Challenge</h3>
+<form method="POST" action="/add_challenge" enctype="multipart/form-data">
+<input name="name" class="input" placeholder="Name">
+<input name="desc" class="input" placeholder="Description">
+<input name="flag" class="input" placeholder="Flag">
+<input name="points" class="input" placeholder="Points">
+<input type="file" name="file">
+<button class="btn full">CREATE</button>
+</form>
+</div>
+
+<!-- MANAGE CHALLENGES -->
+<div class="card">
+<h3>Manage Challenges</h3>
+{% for c in challenges %}
+<p>{{c[1]}}</p>
+<a href="/delete_challenge/{{c[0]}}" class="btn">DELETE</a>
+{% endfor %}
+</div>
+
+<!-- USERS -->
+<div class="card">
+<h3>Manage Users</h3>
+{% for u in users %}
+<p>{{u[1]}}</p>
+<a href="/delete_user/{{u[0]}}" class="btn">DELETE</a>
+{% endfor %}
+</div>
+
+</div>
+
+{% endblock %}

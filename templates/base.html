@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VHP CTF</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- 🔥 NAVBAR -->
+<div class="nav">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+        <div class="logo">VHP</div>
+
+        <a href="/dashboard">DASHBOARD</a>
+        <a href="/scoreboard">SCOREBOARD</a>
+        <a href="/team">TEAM</a>
+        <a href="/profile">PROFILE</a>
+        <a href="/about">ABOUT</a>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+        <!-- 🌙 THEME BUTTON -->
+        <button onclick="toggleTheme()" id="themeBtn" class="theme-btn">🌙</button>
+
+        {% if session.get('user') or session.get('admin') %}
+        <a href="/logout">LOGOUT</a>
+        {% endif %}
+    </div>
+
+</div>
+
+<!-- 🔥 CONTENT -->
+<div class="container">
+{% block content %}{% endblock %}
+</div>
+
+<!-- 🔥 FOOTER -->
+<footer class="footer">
+    <p>Developed by <b>Kamesh</b></p>
+</footer>
+
+<!-- 🔥 THEME SCRIPT -->
+<script>
+function toggleTheme() {
+    let body = document.body;
+
+    if (body.classList.contains("dark")) {
+        body.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        document.getElementById("themeBtn").innerText = "🌙";
+    } else {
+        body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        document.getElementById("themeBtn").innerText = "☀️";
+    }
+}
+
+// load saved theme
+window.onload = function() {
+    let theme = localStorage.getItem("theme");
+
+    if (theme === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("themeBtn").innerText = "☀️";
+    }
+}
+</script>
+
+</body>
+</html>

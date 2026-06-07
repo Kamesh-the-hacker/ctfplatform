@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card" style="max-width:500px;margin:auto;">
+
+    <h2>JOIN TEAM</h2>
+
+    <!-- 🔢 TOTAL TEAMS -->
+    <p style="text-align:center;margin-bottom:15px;">
+        Total Teams: <b>{{count}}</b>
+    </p>
+
+    <form method="POST" class="form-box">
+
+        <input name="name"
+               placeholder="ENTER TEAM NAME"
+               required>
+
+        <input name="password"
+               type="password"
+               placeholder="ENTER TEAM PASSWORD"
+               required>
+
+        <button>JOIN</button>
+
+    </form>
+
+    {% if msg %}
+    <div class="msg error">
+        <p>{{msg}}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

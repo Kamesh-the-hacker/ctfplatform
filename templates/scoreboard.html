@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>LEADERBOARD</h2>
+
+<meta http-equiv="refresh" content="5">
+
+{% for t in teams %}
+<div class="rank">
+<span>#{{loop.index}} {{t[0]}}</span>
+<span>{{t[1]}} PTS</span>
+</div>
+{% endfor %}
+
+{% endblock %}

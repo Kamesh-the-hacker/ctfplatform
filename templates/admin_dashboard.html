@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="page-title">ADMIN PANEL</h2>
+
+<!-- MAIN OPTIONS -->
+<div class="grid">
+
+<div class="card">
+<h3>USERS</h3>
+<a href="/admin/users"><button>MANAGE</button></a>
+</div>
+
+<div class="card">
+<h3>TEAMS</h3>
+<a href="/admin/teams"><button>MANAGE</button></a>
+</div>
+
+<div class="card">
+<h3>CHALLENGES</h3>
+<a href="/admin/challenges"><button>MANAGE</button></a>
+</div>
+<div class="card">
+<h3>SETTINGS</h3>
+<a href="/admin/settings"><button>CHANGE ADMIN</button></a>
+</div>
+
+<!-- 🔥 NEW: FULLSCREEN LEADERBOARD BUTTON -->
+<div class="card">
+<h3>LIVE SCREEN</h3>
+<a href="/admin/live" target="_blank">
+    <button>OPEN PROJECTOR</button>
+</a>
+</div>
+
+</div>
+
+<!-- 🔥 LIVE LEADERBOARD -->
+<h2 class="section-title">LIVE LEADERBOARD</h2>
+
+<div class="card">
+
+<table id="board">
+<tr>
+<th>RANK</th>
+<th>TEAM</th>
+<th>SCORE</th>
+</tr>
+</table>
+
+</div>
+
+<script>
+function loadScoreboard() {
+    fetch('/api/scoreboard')
+    .then(res => res.json())
+    .then(data => {
+
+        let html = `
+        <tr>
+            <th>RANK</th>
+            <th>TEAM</th>
+            <th>SCORE</th>
+        </tr>`;
+
+        if (data.teams.length === 0) {
+            html += `<tr><td colspan="3">No teams yet</td></tr>`;
+        } else {
+            data.teams.forEach((t, i) => {
+                html += `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${t.name}</td>
+                    <td>${t.score}</td>
+                </tr>`;
+            });
+        }
+
+        document.getElementById("board").innerHTML = html;
+    })
+    .catch(err => {
+        console.log("Error:", err);
+    });
+}
+
+// 🔥 refresh every 3 sec
+setInterval(loadScoreboard, 3000);
+loadScoreboard();
+</script>
+
+{% endblock %}

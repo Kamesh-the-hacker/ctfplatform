@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>PROFILE</h2>
+
+<div class="profile-box" style="margin-bottom:30px;">
+    <h3>{{user.username}}</h3>
+</div>
+
+{% if team %}
+
+<div class="card" style="margin-bottom:30px;">
+    <h3>TEAM: {{team.name}}</h3>
+    <p>Score: {{team.score}}</p>
+</div>
+
+<h3 style="margin-bottom:15px;">TEAM MEMBERS</h3>
+
+<div class="grid" style="margin-bottom:30px;">
+{% for m in members %}
+    <div class="card">
+        {{m.username}}
+    </div>
+{% endfor %}
+</div>
+
+{% endif %}
+
+<h3 style="margin-bottom:15px;">SOLVED CHALLENGES</h3>
+
+<div class="grid">
+{% for s in solved %}
+    <div class="card">
+        ✔ {{s.title}}
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

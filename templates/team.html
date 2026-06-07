@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>TEAM</h2>
+
+{% if team %}
+
+<div class="card" style="margin-bottom: 30px;">
+    <h3>{{team.name}}</h3>
+    <p>Score: {{team.score}}</p>
+</div>
+
+<h3 style="margin-bottom: 15px;">MEMBERS</h3>
+
+<div class="grid">
+{% for m in members %}
+    <div class="card">
+        {{m.username}}
+    </div>
+{% endfor %}
+</div>
+
+{% else %}
+
+<div class="grid">
+
+<div class="card">
+<h3>CREATE TEAM</h3>
+<a href="/create_team"><button>CREATE</button></a>
+</div>
+
+<div class="card">
+<h3>JOIN TEAM</h3>
+<a href="/join_team"><button>JOIN</button></a>
+</div>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="page-title">ADMIN SETTINGS</h2>
+
+<div class="card">
+
+<form method="POST" class="form-box">
+
+<input name="username" value="{{admin[1]}}" placeholder="ADMIN USERNAME">
+
+<input name="password" value="{{admin[2]}}" placeholder="NEW PASSWORD">
+
+<button>UPDATE</button>
+
+</form>
+
+</div>
+
+{% if msg %}
+<div class="card">
+<p>{{msg}}</p>
+</div>
+{% endif %}
+
+{% endblock %}

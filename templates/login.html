@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container login-box">
+
+    <h2>LOGIN</h2>
+
+    <form method="POST" class="form-box">
+        <input name="username" placeholder="ENTER USERNAME">
+        <input name="password" type="password" placeholder="ENTER PASSWORD">
+        <button>LOGIN</button>
+    </form>
+
+    <!-- ✅ MESSAGE INSIDE -->
+    {% if msg %}
+    <div class="msg">
+        <p>{{msg}}</p>
+    </div>
+    {% endif %}
+
+    <div class="extra">
+        <p>NEW USER?</p>
+        <a href="/register"><button>REGISTER</button></a>
+    </div>
+
+</div>
+
+{% endblock %}

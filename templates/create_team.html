@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card" style="max-width:500px;margin:auto;">
+
+    <h2>CREATE TEAM</h2>
+
+    <form method="POST" class="form-box">
+
+        <input name="name"
+               placeholder="TEAM NAME"
+               required>
+
+        <input name="password"
+               type="password"
+               placeholder="TEAM PASSWORD"
+               required minlength="3">
+
+        <button>CREATE</button>
+
+    </form>
+
+    <!-- ✅ MESSAGE -->
+    {% if msg %}
+    <div class="msg error">
+        <p>{{msg}}</p>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
